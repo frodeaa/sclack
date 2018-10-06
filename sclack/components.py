@@ -28,7 +28,7 @@ class Box(urwid.AttrWrap):
             tlcorner=get_icon('block_top'),
             blcorner=get_icon('block_bottom'),
             tline='', trcorner='', rline='', bline='', brcorner='')
-        super(Box, self).__init__(body, urwid.AttrSpec(color, 'h235'))
+        super(Box, self).__init__(body, urwid.AttrSpec(color, ''))
 
 
 class Attachment(Box):
@@ -885,7 +885,7 @@ class User(urwid.Text):
             color = '333333'
         color = '#{}'.format(shorten_hex(color))
         markup = [
-            (urwid.AttrSpec(color, 'h235'), '{} '.format(name))
+            (urwid.AttrSpec(color, ''), '{} '.format(name))
         ]
         if is_app:
             markup.append(('app_badge', '[APP]'))
