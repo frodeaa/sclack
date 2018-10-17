@@ -22,18 +22,17 @@ def get_icon(name):
 
 
 class Box(urwid.AttrWrap):
-    def __init__(self, widget, color):
+    def __init__(self, widget, attr):
         body = urwid.LineBox(widget,
             lline=get_icon('block'),
             tlcorner=get_icon('block_top'),
             blcorner=get_icon('block_bottom'),
             tline='', trcorner='', rline='', bline='', brcorner='')
-        super(Box, self).__init__(body, urwid.AttrSpec(color, ''))
+        super(Box, self).__init__(body, attr)
 
 
 class Attachment(Box):
     def __init__(self,
-                 color=None,
                  service_name=None,
                  title=None,
                  title_link=None,
@@ -46,9 +45,6 @@ class Attachment(Box):
                  ts=None,
                  footer=None):
         body = []
-        if not color:
-            color = 'CCCCCC'
-        color = '#{}'.format(shorten_hex(color))
 
         self._image_index = 0
         self.from_url = from_url
@@ -88,7 +84,7 @@ class Attachment(Box):
 
         self.pile = urwid.Pile(body)
 
-        super(Attachment, self).__init__(self.pile, color)
+        super(Attachment, self).__init__(self.pile, 'attachment')
 
     @property
     def file(self):
@@ -887,6 +883,7 @@ class User(urwid.Text):
         markup = [
             (urwid.AttrSpec(color, ''), '{} '.format(name))
         ]
+
         if is_app:
             markup.append(('app_badge', '[APP]'))
         super(User, self).__init__(markup)

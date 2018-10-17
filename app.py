@@ -464,7 +464,6 @@ class App:
                 title=attachment.get('title'),
                 from_url=attachment.get('from_url'),
                 fields=attachment.get('fields'),
-                color=attachment.get('color'),
                 author_name=attachment.get('author_name') or attachment.get('author_subname'),
                 pretext=attachment.get('pretext'),
                 text=message_text,

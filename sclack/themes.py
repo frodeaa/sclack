@@ -52,7 +52,7 @@ themes = {
     'default': [
         ('sidebar', '', '', '', 'white', 'h54'),
         ('profile', '', '', '', 'white', 'h233'),
-        ('profile_icon', '', '', '', 'h244', 'h233'),
+        ('attachment', '', '', '', 'h253', 'h235'),
         ('attachment_title', '', '', '', 'bold,h33', 'h235'),
         ('chatbox', '', '', '', 'white', 'h235'),
         ('chatbox_header', '', '', '', 'h255', 'h235'),
